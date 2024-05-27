@@ -1,68 +1,133 @@
+@font-face {
+  font-family: "AckiPreschool";
+  src: url("./assets/fonts/acki-preschool/AckiPreschool.ttf") format("truetype");
+}
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
+  overflow: hidden;
+  background-image: url("./assets/images/APIbgAll.jpg");
+  font-family: "AckiPreschool";
+}
+
+.form-conteiner {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Quitar las flechas del input de tipo number */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.number {
+  position: absolute;
+  letter-spacing: 5px;
+  height: 40px;
+  width: 240px;
+  background-color: transparent;
+  border: none;
+  font-family: "AckiPreschool";
+  font-size: 40px;
+  color: black;
+  font-weight: bold;
+  word-spacing: 5%;
+  vertical-align: baseline;
+  transform: translateY(-190px) translateX(+50px);
+}
+.number:hover {
+  cursor: text;
+}
+.number:focus{
+  outline: none;
+}
+
+.message {
+  position: absolute;
+  padding: 0px;
+  height: 100px;
+  width: 290px;
+  background-color: transparent;
+  border: none;
+  font-family: "AckiPreschool";
+  font-weight: bold;
+  font-size: large;
+  color: black;
+  display: flex;
+  text-wrap: wrap;
+  text-overflow: clip;
+  flex-wrap: wrap;
+  text-align: start;
+  transform: translateX(+60px) translateY(-63px);
+}
+.message:hover {
+  cursor: text;
+}
+.message:focus{
+  outline: none;
+}
+
+.location{
+  position: absolute;
+  padding: 0px;
+  height: 40px;
+  width: 330px;
+  background-color: transparent;
+  border: none;
+  font-family: "AckiPreschool";
+  font-weight: bold;
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+  word-spacing: 5%;
+  vertical-align: baseline;
+  transform: translateX(-240px) translateY(+50px);
+}
+.location:hover {
+  cursor: text;
+}
+.location:focus{
+  outline: none;
+}
+
+.get-location{
+  position: absolute;
+  padding: 0px;
+  height: 60px;
+  width: 100px;
+  background-color: transparent;
+  border: none;
+  font-family: "AckiPreschool";
+  font-weight: bold;
+  transform: translateX(+110px) translateY(+40px);
+}
+.get-location:hover{
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.send{
+  position: absolute;
+  padding: 0px;
+  height: 80px;
+  width: 150px;
+  background-color: transparent;
+  border: none;
+  font-family: "AckiPreschool";
+  font-weight: bold;
+  transform: translateX(-20px) translateY(+190px);
+}
+.send:hover{
+  cursor: pointer;
 }
