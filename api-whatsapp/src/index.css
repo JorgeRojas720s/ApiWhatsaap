@@ -2,12 +2,19 @@
   font-family: "AckiPreschool";
   src: url("./assets/fonts/acki-preschool/AckiPreschool.ttf") format("truetype");
 }
+
+*{
+  font-family: "AckiPreschool";
+}
 :root {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   overflow: hidden;
   background-image: url("./assets/images/APIbgAll.jpg");
+  background-size: cover; /* Reds */
+  background-repeat: no-repeat; /* Reds */
+ 
   font-family: "AckiPreschool";
 }
 
@@ -19,6 +26,7 @@
   width: 100vw;
   height: 100vh;
   position: absolute;
+ 
 }
 
 /* Quitar las flechas del input de tipo number */
@@ -39,13 +47,16 @@ input[type="number"] {
   width: 240px;
   background-color: transparent;
   border: none;
-  font-family: "AckiPreschool";
-  font-size: 40px;
+  /* font-family: "AckiPreschool"; */
+  font-size: 30px;
   color: black;
   font-weight: bold;
   word-spacing: 5%;
   vertical-align: baseline;
-  transform: translateY(-190px) translateX(+50px);
+  /* yzma */
+  /* transform: translateY(-190px) translateX(+50px); */
+  /* reds */
+  transform: translateY(-100px) translateX(+50px);
 }
 .number:hover {
   cursor: text;
@@ -70,7 +81,11 @@ input[type="number"] {
   text-overflow: clip;
   flex-wrap: wrap;
   text-align: start;
-  transform: translateX(+60px) translateY(-63px);
+  /* yzma */
+  /* transform: translateX(+60px) translateY(-63px); */
+  /* reds */
+  transform: translateY(+10px)  translateX(+70px);
+
 }
 .message:hover {
   cursor: text;
@@ -93,7 +108,11 @@ input[type="number"] {
   font-weight: bold;
   word-spacing: 5%;
   vertical-align: baseline;
-  transform: translateX(-240px) translateY(+50px);
+  /* yzma */
+  /* transform: translateX(-240px) translateY(+50px); */
+  /* reds */
+  transform: translateY(+70px)  translateX(-180px);
+
 }
 .location:hover {
   cursor: text;
@@ -103,15 +122,20 @@ input[type="number"] {
 }
 
 .get-location{
+  background: #000;
   position: absolute;
   padding: 0px;
   height: 60px;
-  width: 100px;
+  width: 80px;
   background-color: transparent;
   border: none;
   font-family: "AckiPreschool";
   font-weight: bold;
-  transform: translateX(+110px) translateY(+40px);
+  /* yzma */
+  /* transform: translateX(+110px) translateY(+40px); */
+  /* reds */
+  transform: translateY(+40px) translateX(+65px);
+
 }
 .get-location:hover{
   cursor: pointer;
@@ -126,7 +150,11 @@ input[type="number"] {
   border: none;
   font-family: "AckiPreschool";
   font-weight: bold;
-  transform: translateX(-20px) translateY(+190px);
+  /* yzma */
+  /* transform: translateX(-20px) translateY(+190px); */
+  /* reds */
+  transform: translateX(-40px) translateY(+190px);
+
 }
 .send:hover{
   cursor: pointer;

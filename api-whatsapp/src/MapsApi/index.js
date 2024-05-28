@@ -6,6 +6,9 @@ import React, { useEffect, useState } from 'react';
 
 
 const ReverseGeocoding = () => {
+
+  if(true !== hola)
+
   // const [latlng, setLatlng] = useState('40.714224,-73.961452');
   // const [map, setMap] = useState(null);
   // const [infoWindow, setInfoWindow] = useState(null);
