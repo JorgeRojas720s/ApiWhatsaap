@@ -2,26 +2,20 @@
   font-family: "AckiPreschool";
   src: url("./assets/fonts/acki-preschool/AckiPreschool.ttf") format("truetype");
 }
-:root {
-  box-sizing: border-box;
-  padding: 0;
+
+html, body {
+  height: 100%;
   margin: 0;
-  overflow: hidden;
-  background-image: url("./assets/images/APIbgAll.jpg");
-  font-family: "AckiPreschool";
-}
-
-.form-conteiner {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
+  align-items: center;
+  background-image: url("./assets/images/APIbg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
 }
 
-/* Quitar las flechas del input de tipo number */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -32,102 +26,152 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.number {
-  position: absolute;
-  letter-spacing: 5px;
-  height: 40px;
-  width: 240px;
-  background-color: transparent;
-  border: none;
-  font-family: "AckiPreschool";
-  font-size: 40px;
-  color: black;
-  font-weight: bold;
-  word-spacing: 5%;
-  vertical-align: baseline;
-  transform: translateY(-190px) translateX(+50px);
-}
-.number:hover {
-  cursor: text;
-}
-.number:focus{
-  outline: none;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: "AckiPreschool"; 
+  background-repeat: no-repeat;
 }
 
-.message {
-  position: absolute;
-  padding: 0px;
-  height: 100px;
-  width: 290px;
-  background-color: transparent;
-  border: none;
-  font-family: "AckiPreschool";
-  font-weight: bold;
-  font-size: large;
-  color: black;
+.form-conteiner {
+  position: relative;
+  width: 630px;
+  height: 700px;
   display: flex;
-  text-wrap: wrap;
-  text-overflow: clip;
-  flex-wrap: wrap;
-  text-align: start;
-  transform: translateX(+60px) translateY(-63px);
-}
-.message:hover {
-  cursor: text;
-}
-.message:focus{
-  outline: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.01);
+  z-index: 1;
 }
 
-.location{
+.form-conteiner::before {
+  content: "";
   position: absolute;
-  padding: 0px;
-  height: 40px;
-  width: 330px;
-  background-color: transparent;
-  border: none;
-  font-family: "AckiPreschool";
-  font-weight: bold;
-  color: black;
-  font-size: 40px;
-  font-weight: bold;
-  word-spacing: 5%;
-  vertical-align: baseline;
-  transform: translateX(-240px) translateY(+50px);
-}
-.location:hover {
-  cursor: text;
-}
-.location:focus{
-  outline: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  backdrop-filter: blur(5px);
+  z-index: -1;
 }
 
-.get-location{
-  position: absolute;
-  padding: 0px;
-  height: 60px;
-  width: 100px;
-  background-color: transparent;
-  border: none;
-  font-family: "AckiPreschool";
-  font-weight: bold;
-  transform: translateX(+110px) translateY(+40px);
-}
-.get-location:hover{
-  cursor: pointer;
+.form-content {
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.send{
-  position: absolute;
-  padding: 0px;
-  height: 80px;
-  width: 150px;
-  background-color: transparent;
-  border: none;
-  font-family: "AckiPreschool";
+.form-content h1{
+  font-size: 4rem;
+}
+
+.inputs-conteiner{
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs-conteiner div{
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+.inputs-conteiner div input, textarea{
+  width: 20rem;
+  margin: 20px 0px;
+  font-size: 3em;
   font-weight: bold;
-  transform: translateX(-20px) translateY(+190px);
+  overflow: auto;
+  border: none;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.8);
+  background: transparent;
+}
+.inputs-conteiner div input, textarea :hover{
+ cursor: text;
+}
+
+.inputs-conteiner div :focus{
+ outline: none;
+}
+
+.inputs-conteiner .location-conteiner{
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 0px;
+}
+.inputs-conteiner .location-conteiner .get-location{
+  background: transparent;
+  border: none;
+}
+.inputs-conteiner .location-conteiner .get-location{
+  font-size: 4rem;
+  background: transparent;
+  background-image: url('./assets/icons/locationInconBTN.png');
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center center;
+  border: none;
+  width: 150px; 
+  height: 150px; 
+}
+.inputs-conteiner .location-conteiner .get-location:hover{
+ cursor: pointer;
+}
+.inputs-conteiner .location-conteiner .location{
+  width: 240px;
+}
+
+.inputs-conteiner p {
+  font-size: 4rem;
+}
+
+.send {
+  font-size: 4rem;
+  background: transparent;
+  background-image: url('./assets/icons/zentIcon.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+  border: none;
+  margin-top: 10px;
+  width: 200px; 
+  height: 100px; 
+  transform: translateX(+100%);
 }
 .send:hover{
   cursor: pointer;
 }
+
+
+/* 
+
+input, textarea {
+  width: calc(100% - 40px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button.send {
+  padding: 10px 20px;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button.send img {
+  margin-right: 10px;
+} */
