@@ -2,11 +2,17 @@ import React from "react";
 import ReverseGeocoding from './MapsApi/ReverseGeocoding'
 
 const App = () => {
+
+ const position = () => {
+  navigator.geolocation.getCurrentPosition((position) => {
+    console.log("lat: ", position.coords.latitude, " lon: ", position.coords.longitude);
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+  });
+ }
+
   return (
     <div>
-      {/* <img src="./assets/images/APIbgAll.jpg" /> */}
-      <ReverseGeocoding/>
-{/* 
       <div className="form-conteiner">
         <input className="number" placeholder="Numver" type="number" />
         <textarea className="message" placeholder="Messach" />
@@ -17,9 +23,11 @@ const App = () => {
             onClick={() => alert("get-location")}
           ></button>
         </div>
-        <button className="send" onClick={() => alert("zent")}></button>
-      </div> */}
+        <button className="send" onClick={() => position}></button>
+      </div>
+
     </div>
+    
   );
 };
 
