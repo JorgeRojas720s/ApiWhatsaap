@@ -128,6 +128,8 @@ input[type="number"] {
 }
 .inputs-conteiner .location-conteiner .location{
   width: 240px;
+  font-size: 1.5rem;
+  color: black;
 }
 
 .inputs-conteiner p {
@@ -150,7 +152,6 @@ input[type="number"] {
 .send:hover{
   cursor: pointer;
 }
-
 
 /* 
 
