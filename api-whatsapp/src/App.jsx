@@ -27,6 +27,15 @@ const data = [
 ];
 
 const App = () => {
+
+ const position = () => {
+  navigator.geolocation.getCurrentPosition((position) => {
+    console.log("lat: ", position.coords.latitude, " lon: ", position.coords.longitude);
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+  });
+ }
+
   return (
     <div>
       <div className="form-conteiner">
@@ -76,7 +85,9 @@ const App = () => {
           </div>
         </div>
       </div>
+
     </div>
+    
   );
 };
 
