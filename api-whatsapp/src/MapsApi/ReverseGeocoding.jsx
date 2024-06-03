@@ -67,6 +67,7 @@
 
 
 import React from "react";
+import { API_KEY } from "../../API_KEY.JS";
 
 export async function ReverseGeocoding(latitude, longitude) {
   let latlng = `${latitude},${longitude}`;
@@ -81,7 +82,7 @@ export async function ReverseGeocoding(latitude, longitude) {
       if (!existingScript) {
         console.log("Creando un script");
         const script = document.createElement("script");
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ9Vho50731KbpOer3CRSc1nTHLBZMY5s&libraries=places`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places`;
         script.defer = true;
         script.async = true;
         document.head.appendChild(script);
