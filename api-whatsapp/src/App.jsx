@@ -12,21 +12,22 @@ const App = () => {
  }
 
   return (
-    <div>
-      <div className="form-conteiner">
-        <input className="number" placeholder="Numver" type="number" />
-        <textarea className="message" placeholder="Messach" />
-        <div>
-          <input className="location" readOnly placeholder="Lokachon" />
-          <button
-            className="get-location"
-            onClick={() => alert("get-location")}
-          ></button>
-        </div>
-        <button className="send" onClick={() => position}></button>
-      </div>
+    <ReverseGeocoding/>
+    // <div>
+    //   <div className="form-conteiner">
+    //     <input className="number" placeholder="Numver" type="number" />
+    //     <textarea className="message" placeholder="Messach" />
+    //     <div>
+    //       <input className="location" readOnly placeholder="Lokachon" />
+    //       <button
+    //         className="get-location"
+    //         onClick={() => alert("get-location")}
+    //       ></button>
+    //     </div>
+    //     <button className="send" onClick={() => position}></button>
+    //   </div>
 
-    </div>
+    // </div>
     
   );
 };

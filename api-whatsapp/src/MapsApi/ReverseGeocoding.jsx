@@ -13,7 +13,12 @@ const ReverseGeocoding = () => {
   const [geocoder, setGeocoder] = useState(null);
 
 
-
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log("lat: ", position.coords.latitude, " lon: ", position.coords.longitude);
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+    });
+  
   useEffect(() => {
     loadGoogleMapsScript();
   }, []);
@@ -44,7 +49,7 @@ const ReverseGeocoding = () => {
     if (!existingScript) {
       console.log("Creando un script");
       const script = document.createElement("script");
-      script.src = `https://maps.googleapis.com/maps/api/js?key=KEY&callback=initMap&libraries=places`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=Key&callback=initMap&libraries=places`;
       script.defer = true;
       script.async = true;
       document.head.appendChild(script);
