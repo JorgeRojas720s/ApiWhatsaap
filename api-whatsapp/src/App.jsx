@@ -1,65 +1,90 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { locationIcon } from "./assets/icons";
 import { ReverseGeocoding } from "./MapsApi/ReverseGeocoding";
+
+// const runScript = require("runscript");
+
 const data = [
   {
-    label: "Numver",
+    label: "Number",
     labelClassName: "number-label",
     className: "number",
-    placeholder: "Numver",
+    placeholder: "Number",
     type: "number",
   },
-
   {
-    label: "Messach",
+    label: "Message",
     labelClassName: "message-label",
     className: "message",
-    placeholder: "Messach",
+    placeholder: "Message",
     type: "",
   },
-
   {
-    label: "Lokachon",
+    label: "Location",
     labelClassName: "location-label",
     className: "location",
-    placeholder: "Lokachon",
+    placeholder: "Location",
     type: "",
   },
 ];
 
 const App = () => {
   let latitude, longitude;
-  const [number, setNumber] = useState("");
+  const [telphone, setTelphone] = useState("");
   const [message, setMessage] = useState("");
   const [location, setLocation] = useState("");
-  const [direcction, setDirecction] = useState("");
+  const [direction, setDirection] = useState("");
+
+  
+  // useEffect(() => {
+  //   runScript("node -v", { stdio: "pipe" })
+  //     .then((stdio) => {
+  //       console.log(stdio);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // }, []);
 
   const position = () => {
     navigator.geolocation.getCurrentPosition(async (position) => {
-      console.log(
-        "lat: ",
-        position.coords.latitude,
-        " lon: ",
-        position.coords.longitude
-      );
       latitude = position.coords.latitude;
       longitude = position.coords.longitude;
-      setDirecction(await ReverseGeocoding(latitude, longitude));
-      console.log("direcction: ", direcction);
-      setLocation(direcction.substring(direcction.indexOf(",") + 2));
+      const dir = await ReverseGeocoding(latitude, longitude);
+      setDirection(dir);
+      setLocation(dir.substring(dir.indexOf(",") + 2));
     });
   };
 
-  function sendData() {
-    console.log("🚀 ~ App ~ number:", number);
-    console.log("🚀 ~ App ~ message:", message);
-    console.log("🚀 ~ App ~ location:", location);
-    
+  const sendData = async () => {
+    const payload = {
+      tel: telphone,
+      message: message,
+      location: location,
+    };
+
+    try {
+      const response = await fetch("/api/enviarMensaje", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        alert("Mensaje Enviadoo");
+      } else {
+        alert("Fallo en el envio");
+      }
+    } catch (error) {
+      console.error("Error : ", error);
+      alert("Ocuirro un error");
+    }
   };
 
   return (
-
     <div>
       <div className="form-conteiner">
         <div className="form-content">
@@ -102,8 +127,8 @@ const App = () => {
                       className={className}
                       placeholder={placeholder}
                       type={type}
-                      value={number}
-                      onChange={(e) => setNumber(e.target.value)}
+                      value={telphone}
+                      onChange={(e) => setTelphone(e.target.value)}
                     />
                   )}
                 </div>

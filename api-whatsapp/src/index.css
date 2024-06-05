@@ -6,18 +6,6 @@
 html, body {
   height: 100%;
   margin: 0;
-<<<<<<< HEAD
-  overflow: hidden;
-  /* background-image: url("./assets/images/APIbgAll.jpg"); */
-  background-size: cover; /* Reds */
-  background-repeat: no-repeat; /* Reds */
- 
-  font-family: "AckiPreschool";
-}
-
-.form-conteiner {
-=======
->>>>>>> 454167ebf2fc23b1966e3b1e6dfff2d6f162e115
   display: flex;
   justify-content: center;
   align-items: center;
