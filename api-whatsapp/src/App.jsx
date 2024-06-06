@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { locationIcon } from "./assets/icons";
-import {ReverseGeocoding}  from "./MapsApi/ReverseGeocoding";
+import { ReverseGeocoding } from "./MapsApi/ReverseGeocoding";
 const data = [
   {
     label: "Numver",
@@ -29,20 +29,34 @@ const data = [
 ];
 
 const App = () => {
-  const [location, setLocation] = useState('')
   let latitude, longitude;
-  const [direcction, setDirecction] = useState('')
+  const [number, setNumber] = useState("");
+  const [message, setMessage] = useState("");
+  const [location, setLocation] = useState("");
+  const [direcction, setDirecction] = useState("");
 
- const position = () => {
-  navigator.geolocation.getCurrentPosition(async (position) => {
-    console.log("lat: ", position.coords.latitude, " lon: ", position.coords.longitude);
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
-    setDirecction(await ReverseGeocoding(latitude, longitude))
-    console.log('direcction: ', direcction)
-    setLocation(direcction.substring(direcction.indexOf(',')+2));
-  });
- }
+  const position = () => {
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      console.log(
+        "lat: ",
+        position.coords.latitude,
+        " lon: ",
+        position.coords.longitude
+      );
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+      setDirecction(await ReverseGeocoding(latitude, longitude));
+      console.log("direcction: ", direcction);
+      setLocation(direcction.substring(direcction.indexOf(",") + 2));
+    });
+  };
+
+  function sendData() {
+    console.log("🚀 ~ App ~ number:", number);
+    console.log("🚀 ~ App ~ message:", message);
+    console.log("🚀 ~ App ~ location:", location);
+    
+  };
 
   return (
     <div>
@@ -55,7 +69,12 @@ const App = () => {
                 <div key={index}>
                   <p className={`${className}-p`}>{label}</p>
                   {className === "message" ? (
-                    <textarea className={className} placeholder={placeholder} />
+                    <textarea
+                      className={className}
+                      placeholder={placeholder}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                    />
                   ) : className === "location" ? (
                     <div className="location-conteiner">
                       <input
@@ -82,21 +101,21 @@ const App = () => {
                       className={className}
                       placeholder={placeholder}
                       type={type}
+                      value={number}
+                      onChange={(e) => setNumber(e.target.value)}
                     />
                   )}
                 </div>
               );
             })}
 
-            <button className="send" onClick={() => alert("zent")}>
+            <button className="send" onClick={() => sendData()}>
               ZENT
             </button>
           </div>
         </div>
       </div>
-
     </div>
-    
   );
 };
 
