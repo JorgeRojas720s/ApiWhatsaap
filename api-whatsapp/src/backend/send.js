@@ -8,7 +8,7 @@ async function sendMessage(tel, message, location) {
     const number_details = await whatsapp.getNumberId(chatId);
     if (number_details) {
       // const mensaje = "ISma hp";
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 100; i++) {
         await whatsapp.sendMessage(chatId, fullMessage);
       }
       console.log("mensaje enviado")

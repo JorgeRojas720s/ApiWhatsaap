@@ -67,11 +67,7 @@
 
 
 import React from "react";
-<<<<<<< HEAD
 import { API_KEY } from "../../API_KEY.JS";
-=======
-import {API_KEY} from "../../API_KEY"
->>>>>>> 454167ebf2fc23b1966e3b1e6dfff2d6f162e115
 
 export async function ReverseGeocoding(latitude, longitude) {
   let latlng = `${latitude},${longitude}`;
